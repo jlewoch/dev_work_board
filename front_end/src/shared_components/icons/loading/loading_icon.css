@@ -1,0 +1,17 @@
+#loading-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.loader {
+    height: 25%;
+    animation: loading 2s infinite linear;
+}
+
+@keyframes loading {
+    to {
+        transform: rotate(360deg);
+    }
+}

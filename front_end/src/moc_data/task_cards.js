@@ -4,52 +4,67 @@ export const tasks = {
     priority: 'high',
     dueDate: new Date().toLocaleDateString(),
     title: 'creation of API paths',
-    category: 'API'
+    category: 'API',
+    status: 'completed'
   },
   he: {
-    taskNum: 1,
+    status: 'in progress',
+
+    taskNum: 2,
     priority: 'low',
     dueDate: new Date().toLocaleDateString(),
     title: 'creation of API paths',
     category: 'API'
   },
   me: {
-    taskNum: 1,
+    status: 'unassigned',
+
+    taskNum: 3,
     priority: 'normal',
     dueDate: new Date().toLocaleDateString(),
     title: 'creation of API paths',
     category: 'API'
   },
   lo: {
-    taskNum: 1,
+    status: 'ready for review',
+
+    taskNum: 4,
     priority: 'high',
     dueDate: new Date().toLocaleDateString(),
     title: 'creation of API paths',
     category: 'API'
   },
   his: {
-    taskNum: 1,
+    status: 'completed',
+
+    taskNum: 5,
     priority: 'high',
     dueDate: new Date().toLocaleDateString(),
     title: 'Improve "Hide Empty Lane"',
     category: 'API'
   },
   hse: {
-    taskNum: 1,
+    status: 'completed',
+
+    taskNum: 6,
     priority: 'low',
     dueDate: new Date().toLocaleDateString(),
     title: 'creation of API paths',
     category: 'API'
   },
   mse: {
-    taskNum: 1,
+    status: 'ready fro review',
+
+    taskNum: 7,
     priority: 'normal',
     dueDate: new Date().toLocaleDateString(),
     title: 'creation of API paths',
     category: 'API'
   },
   lso: {
-    taskNum: 1,
+    status: 'ready fro review',
+
+    taskNum: 8,
     priority: 'high',
     dueDate: new Date().toLocaleDateString(),
     title: 'creation of API paths',

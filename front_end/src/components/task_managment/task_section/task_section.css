@@ -1,0 +1,30 @@
+.card-section {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    background: #d4d0c0;
+    height: 100%;
+    padding: 10px;
+    overflow-y: auto;
+    width: 295px;
+    border-radius: 6px;
+}
+
+.task-section-container {
+    margin: 1rem;
+    min-width: fit-content;
+}
+
+.section-title {
+    margin: 0;
+    padding: 10px;
+}
+
+.task-section-button {
+    margin: 10px 0px;
+}
+
+.task-section-top {
+    background: #d4d0c0;
+    border-radius: 6px;
+}

@@ -5,7 +5,7 @@ const CommentsIcon = ({ width = 30 }) => {
     <svg className='svg' stroke='black' viewBox='0 0 30 30' width={width}>
       <path
         fill='white'
-        stroke-linecap='round'
+        strokeLinecap='round'
         d='M 5,5
              v 15
              h 6

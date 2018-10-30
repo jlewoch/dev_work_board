@@ -1,6 +1,8 @@
 import React from 'react'
-import DefaultImage from '../../default_image/DefaultImage'
-import CommentsIcon from '../../comments_icon/CommentsIcon'
+import DefaultImage
+  from '../../../../shared_components/icons/default_image/DefaultImage'
+import CommentsIcon
+  from '../../../../shared_components/icons/comments_icon/CommentsIcon'
 import './task_card.css'
 
 const TaskCard = ({
@@ -9,14 +11,14 @@ const TaskCard = ({
   dueDate,
   title,
   id,
-  dragStart,
+  onDrag,
   assignedImg,
   category
 }) => {
   return (
-    <div draggable className='card' id={id} onDragStart={dragStart}>
+    <div draggable className='card' id={id} onDragStart={onDrag}>
       <div className='card-top'>
-        <p className='identity'>{taskNum}</p>
+        <p className='identity'>{'#' + taskNum}</p>
         <p className={`priority ${priority}`}>{priority}</p>
 
       </div>

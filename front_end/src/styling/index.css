@@ -1,9 +1,9 @@
 /* general */
-*{
+
+* {
   box-sizing: border-box;
-  overflow: hidden;
-  
 }
+
 body {
   height: 100vh;
   width: 100vw;
@@ -12,77 +12,55 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-a{
+
+a {
   text-decoration: none;
 }
-#root{
+
+.page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+#root {
   height: 100%;
   width: 100%;
 }
-.title{
-  margin:0;
+
+.title, .app-title {
+  margin: 0;
 }
+
 /* svg */
-.svg{
+
+.svg {
   transition: .2s all ease-in-out;
 }
-.svg:hover{
+
+.svg:hover {
   cursor: pointer;
- stroke: #5896ce;
+  stroke: #5896ce;
 }
-#arrow{
+
+#arrow {
   transition: .5s all;
 }
-#arrow.open{
+
+#arrow.open {
   transform: rotate(90deg);
 }
-#arrow.close{
-  transform: rotate(0deg);
 
+#arrow.close {
+  transform: rotate(0deg);
 }
+
 /* menu */
-.profile-container{
-  position: relative;
-  display: flex;
-  justify-content: center;
-  max-width: 200px;
-}
-.menu{
-  padding: 10px;
-  display: flex;
-  align-items: center;
-}
-.menu:hover{
-  cursor: pointer;
-}
-.menu-options{
-  overflow: hidden;
-  background: gray;
-  position: absolute;
-top: 100%;
-width: 100%;
-  display: flex;
-  flex-direction: column;
-justify-content: center;
-transition: .5s all;
-}
-.menu-options.open{
-height: 300%;
-}
-.menu-options.close{
-  height: 0;
-}
-.menu-link{
-  padding: 10px;
-  display: flex;
-  justify-content: center;
-}
-.menu-link:hover{
-  cursor: pointer;
-  background: darkgray;
-}
+
 /* images */
-.user-img{
+
+.user-img {
   border-radius: 50%;
   background: gray;
   margin-right: 5px;
@@ -92,16 +70,64 @@ height: 300%;
 
 ::-webkit-scrollbar {
   width: 5px;
-  
 }
 
 ::-webkit-scrollbar-track {
   box-shadow: none;
-  
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #55B1C3; 
+  background: #55B1C3;
   border-radius: 10px;
   height: 20px;
+}
+
+/* forms */
+
+.form-input:focus~.form-input-label {
+  color: blue;
+  transform: translateY(-10px);
+  font-size: .75rem;
+}
+
+.form-input-label.valid {
+  color: blue;
+  transform: translateY(-10px);
+  font-size: .75rem;
+}
+
+.form-input-container {
+  width: fill;
+  padding: 12px 0;
+  position: relative;
+}
+
+.form-input {
+  font-size: .9rem;
+  width: 100%;
+  outline: none;
+  border: none;
+  border-bottom: solid thin black;
+}
+
+.form-input-label {
+  color: gray;
+  font-size: .9rem;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  pointer-events: none;
+  transition: .2s ease;
+}
+
+/* buttons */
+
+.button-style {
+  font-weight: 600;
+  font-size: 1.2rem;
+  border: none;
+  background: black;
+  color: white;
+  height: 50px;
+  width: 150px;
 }

@@ -1,10 +1,11 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
-import { TaskManagement } from './components/task_managment'
+import TaskForm from './components/task_form/TaskForm'
+
 const Routes = () => {
   return (
     <Switch>
-      <Route path='/' exact component={TaskManagement} />
+      <Route path='/' exact component={TaskForm} />
 
     </Switch>
   )
