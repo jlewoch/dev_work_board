@@ -51,17 +51,20 @@ class TaskSection extends Component {
     // const { totalItems, pageInfo, offset } = this.state
     const { tasks, sectionName } = this.props
     return (
-      <div className='task-section-container'>
+      <div className='task-section'>
         <div className='task-section-top'>
           <h5 className='section-title'>{sectionName}</h5>
         </div>
-        <button className='task-section-button'>hello</button>
+        <div className='task-section-middle'>
+          <button className='task-section-button'>hello</button>
+
+        </div>
         <div
           onDragOver={e => e.preventDefault()}
           onDrop={e => {
             this.props.onDrop(e, sectionName)
           }}
-          className='card-section'
+          className='task-section-bottom'
         >
           {Object.keys(tasks).map(key => {
             const card = tasks[key]

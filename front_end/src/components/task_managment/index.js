@@ -10,6 +10,6 @@ const mapDispatchToProps = dispatch => ({
   changeStatus: e => dispatch(changeStatus(e))
 })
 
-export const TaskManagement = connect(mapStateToProps, mapDispatchToProps)(
+export const TaskManagment = connect(mapStateToProps, mapDispatchToProps)(
   TaskManagmentDisplay
 )

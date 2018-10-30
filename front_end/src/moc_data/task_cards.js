@@ -5,10 +5,10 @@ export const tasks = {
     dueDate: new Date().toLocaleDateString(),
     title: 'creation of API paths',
     category: 'API',
-    status: 'completed'
+    status: 'Completed'
   },
   he: {
-    status: 'in progress',
+    status: 'In Development',
 
     taskNum: 2,
     priority: 'low',
@@ -17,7 +17,7 @@ export const tasks = {
     category: 'API'
   },
   me: {
-    status: 'unassigned',
+    status: 'Unassigned',
 
     taskNum: 3,
     priority: 'normal',
@@ -26,7 +26,7 @@ export const tasks = {
     category: 'API'
   },
   lo: {
-    status: 'ready for review',
+    status: 'Ready for Testing',
 
     taskNum: 4,
     priority: 'high',
@@ -35,7 +35,7 @@ export const tasks = {
     category: 'API'
   },
   his: {
-    status: 'completed',
+    status: 'Completed',
 
     taskNum: 5,
     priority: 'high',
@@ -44,7 +44,7 @@ export const tasks = {
     category: 'API'
   },
   hse: {
-    status: 'completed',
+    status: 'Completed',
 
     taskNum: 6,
     priority: 'low',
@@ -53,7 +53,7 @@ export const tasks = {
     category: 'API'
   },
   mse: {
-    status: 'ready fro review',
+    status: 'Ready for Testing',
 
     taskNum: 7,
     priority: 'normal',
@@ -62,7 +62,7 @@ export const tasks = {
     category: 'API'
   },
   lso: {
-    status: 'ready fro review',
+    status: 'Ready for Deployment',
 
     taskNum: 8,
     priority: 'high',

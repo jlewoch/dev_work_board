@@ -8,7 +8,16 @@ export const taskObject = e => ({
 })
 
 export const createLists = e => {
-  let temp = {}
+  let temp = {
+    Backlog: {},
+    Unassigned: {},
+    'In Development': {},
+    'Ready for Testing': {},
+    'In Testing': {},
+    'Ready for Deployment': {},
+    'In Deployment': {},
+    Completed: {}
+  }
   for (const key in e) {
     temp = {
       ...temp,

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import TaskSection from './task_section/TaskSection'
 import FormInput from '../../shared_components/form_input/FormInput'
-
 class TaskManagment extends Component {
   componentDidMount () {}
   onDrop = (e, newStatus) => {
@@ -18,14 +17,17 @@ class TaskManagment extends Component {
 
     return (
       <div className='task-management'>
-        {Object.keys(tasks).map(key => (
-          <TaskSection
-            key={key}
-            onDrop={this.onDrop}
-            tasks={tasks[key]}
-            sectionName={key}
-          />
-        ))}
+        <div className='task-management-bottom'>
+          {Object.keys(tasks).map(key => (
+            <TaskSection
+              key={key}
+              onDrop={this.onDrop}
+              tasks={tasks[key]}
+              sectionName={key}
+            />
+          ))}
+        </div>
+
       </div>
     )
   }

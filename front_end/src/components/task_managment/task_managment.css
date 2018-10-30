@@ -1,5 +1,10 @@
 .task-management {
-    display: flex;
+    height: 100%;
+}
+
+.task-management-bottom {
     height: 100%;
     overflow-x: auto;
+    display: flex;
+    padding: .5rem;
 }
