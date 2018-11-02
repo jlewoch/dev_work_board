@@ -33,8 +33,6 @@ class TaskSection extends Component {
   // }
 
   onDrag = e => {
-    console.log(e)
-
     e.dataTransfer.setData(
       'text/plain',
       JSON.stringify({
@@ -73,23 +71,24 @@ class TaskSection extends Component {
           }}
           className='task-section-bottom'
         >
-          {tasks & tasks[id] &&
-            Object.keys(tasks[id]).map(key => {
+          {tasks[id]
+            ? Object.keys(tasks[id]).sort().map(key => {
               const card = tasks[id][key]
               return (
                 <TaskCard
                   key={key}
                   id={key}
-                  taskNum={card.taskNum}
+                  taskNum={key}
                   priority={card.priority}
                   assignedImg={card.assignedImg}
                   onDrag={this.onDrag}
                   dueDate={card.dueDate}
                   title={card.title}
                   category={card.category}
-                />
+                  />
               )
-            })}
+            })
+            : ''}
         </div>
       </div>
     )

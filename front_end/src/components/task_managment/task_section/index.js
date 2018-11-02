@@ -6,8 +6,8 @@ const mapStateToProps = state => ({
   tasks: state.tasks
 })
 
-const mapDispatchToProps = dispatch => ({
-  addTask: e => dispatch(addTask(e))
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  addTask: e => dispatch(addTask({ ...e, sectionId: ownProps.id }))
 })
 
 export const TaskSection = connect(mapStateToProps, mapDispatchToProps)(

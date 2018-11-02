@@ -1,13 +1,13 @@
 .adding-container {
     display: flex;
     width: 100%;
-    padding: 10px;
 }
 
 .adding-btn {
     margin: 10px;
     border: none;
     font-weight: 600;
+    padding: 10px;
 }
 
 .adding {
@@ -15,6 +15,7 @@
     justify-content: space-between;
     align-items: center;
     display: flex;
+    padding: 10px;
 }
 
 .adding-container:hover, .adding-btn:hover {
