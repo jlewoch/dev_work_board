@@ -28,6 +28,8 @@
 .task-section-button {}
 
 .task-section-top {
+    display: flex;
+    justify-content: space-between;
     background: #d4d0c0;
     border-radius: 6px;
     padding: 10px;

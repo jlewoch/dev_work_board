@@ -1,1 +1,5 @@
-export const UPDATE_STATUS = 'UPDATE_STATUS'
+export const ADD_TASK = 'ADD_TASK'
+export const ADD_EXISTING_TASK = 'ADD_EXISTING_TASK'
+
+export const REMOVE_TASK = 'REMOVE_TASK'
+export const UPDATE_TASK_INFO = 'UPDATE_TASK_INFO'

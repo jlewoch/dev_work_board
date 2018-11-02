@@ -1,10 +1,10 @@
 export const taskObject = e => ({
-  taskNum: e.taskNum,
-  priority: e.priority,
-  dueDate: e.dueDate,
+  taskNum: e.taskNum || 0,
+  priority: e.priority || 'Normal',
+  dueDate: e.dueDate || '',
   title: e.title,
-  assignedImg: e.assigned,
-  category: e.category
+  assignedImg: e.assigned || '',
+  category: e.category || 'N/A'
 })
 
 export const createLists = e => {

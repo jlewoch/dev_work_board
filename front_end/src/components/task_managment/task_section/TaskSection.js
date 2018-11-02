@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import TaskCard from './task_card/TaskCard'
 import './task_section.css'
+import PlusBtn from '../../../shared_components/icons/plus_btn/PlusBtn'
+import AddNew from '../../../shared_components/add_new/AddNew'
 class TaskSection extends Component {
   constructor (props) {
     super(props)
@@ -35,7 +37,11 @@ class TaskSection extends Component {
 
     e.dataTransfer.setData(
       'text/plain',
-      JSON.stringify({ id: e.target.id, oldStatus: this.state.sectionName })
+      JSON.stringify({
+        taskItem: this.props.tasks[this.props.id][e.target.id],
+        taskId: e.target.id,
+        oldSectionId: this.props.id
+      })
     )
   }
 
@@ -49,39 +55,41 @@ class TaskSection extends Component {
 
   render () {
     // const { totalItems, pageInfo, offset } = this.state
-    const { tasks, sectionName } = this.props
+    const { tasks, title, addTask, id } = this.props
     return (
       <div className='task-section'>
         <div className='task-section-top'>
-          <h5 className='section-title'>{sectionName}</h5>
+          <h5 className='section-title'>{title}</h5>
         </div>
         <div className='task-section-middle'>
-          <button className='task-section-button'>hello</button>
+          <AddNew title='Task' addclick={addTask} />
 
         </div>
+
         <div
           onDragOver={e => e.preventDefault()}
           onDrop={e => {
-            this.props.onDrop(e, sectionName)
+            this.props.onDrop(e, id)
           }}
           className='task-section-bottom'
         >
-          {Object.keys(tasks).map(key => {
-            const card = tasks[key]
-            return (
-              <TaskCard
-                key={card.taskNum}
-                id={card.taskNum}
-                taskNum={card.taskNum}
-                priority={card.priority}
-                assignedImg={card.assignedImg}
-                onDrag={this.onDrag}
-                dueDate={card.dueDate}
-                title={card.title}
-                category={card.category}
-              />
-            )
-          })}
+          {tasks & tasks[id] &&
+            Object.keys(tasks[id]).map(key => {
+              const card = tasks[id][key]
+              return (
+                <TaskCard
+                  key={key}
+                  id={key}
+                  taskNum={card.taskNum}
+                  priority={card.priority}
+                  assignedImg={card.assignedImg}
+                  onDrag={this.onDrag}
+                  dueDate={card.dueDate}
+                  title={card.title}
+                  category={card.category}
+                />
+              )
+            })}
         </div>
       </div>
     )

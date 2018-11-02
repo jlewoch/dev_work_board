@@ -1,5 +1,7 @@
 import { combineReducers } from 'redux'
 // Reducers
 import tasks from './tasks/reducers'
-const reducers = combineReducers({ tasks })
+import boards from './boards/reducers'
+import sections from './sections/reducers'
+const reducers = combineReducers({ sections, tasks, boards })
 export default reducers

@@ -1,12 +1,23 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import { TaskManagment } from './components/task_managment/'
+import { SideNavigation } from './components/navigation_bars/'
 const Routes = () => {
   return (
-    <Switch>
-      <Route path='/' exact component={TaskManagment} />
+    <div id='main'>
+      <div className='main-top' />
+      <div className='main-bottom'>
+        <div className='main-bottom-left'>
+          <SideNavigation />
 
-    </Switch>
+        </div>
+        <div className='main-bottom-right'>
+          <Route path='/management/:boardId' component={TaskManagment} />
+        </div>
+
+      </div>
+
+    </div>
   )
 }
 

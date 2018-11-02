@@ -1,31 +1,51 @@
 import React, { Component } from 'react'
-import TaskSection from './task_section/TaskSection'
-import FormInput from '../../shared_components/form_input/FormInput'
+import { TaskSection } from './task_section'
+import AddNew from '../../shared_components/add_new/AddNew'
+
 class TaskManagment extends Component {
   componentDidMount () {}
-  onDrop = (e, newStatus) => {
+  onDrop = (e, newSectionId) => {
     const data = JSON.parse(e.dataTransfer.getData('text'))
-    this.props.changeStatus({
-      newStatus,
-      id: data.id,
-      oldStatus: data.oldStatus
+    this.props.addExistingTask({
+      taskId: data.taskId,
+      taskItem: data.taskItem,
+      sectionId: newSectionId
     })
+    this.props.removeTask({ taskId: data.taskId, sectionId: data.oldSectionId })
   }
-  render () {
-    const { tasks } = this.props
-    console.log(this.props)
 
+  render () {
+    const { sections, addSection, boards } = this.props
+    const { boardId } = this.props.match.params
+
+    if (!boards[boardId]) {
+      return (
+        <div className='error-container'>
+          <h1 className='error-text'>
+            {boards.length > 0
+              ? 'The board ID selected does not exist'
+              : 'There are no boards available'}
+          </h1>
+        </div>
+      )
+    }
     return (
       <div className='task-management'>
+        <div className='task-management-top'>
+          <AddNew title='section' addclick={addSection} />
+        </div>
         <div className='task-management-bottom'>
-          {Object.keys(tasks).map(key => (
-            <TaskSection
-              key={key}
-              onDrop={this.onDrop}
-              tasks={tasks[key]}
-              sectionName={key}
-            />
-          ))}
+
+          {sections & sections[boardId]
+            ? Object.keys(sections[boardId]).map(key => (
+              <TaskSection
+                id={key}
+                key={key}
+                onDrop={this.onDrop}
+                title={sections[key].title}
+                />
+              ))
+            : ''}
         </div>
 
       </div>

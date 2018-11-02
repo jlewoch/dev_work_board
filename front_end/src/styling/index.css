@@ -15,6 +15,33 @@ body {
 
 a {
   text-decoration: none;
+  color: black;
+}
+
+#main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.main-bottom {
+  display: flex;
+  height: 100%;
+}
+
+.main-top {
+  display: flex;
+  padding: 10px 15px;
+  background: #55B1C3;
+  height: 60px;
+}
+
+.main-bottom-right {
+  width: 100%;
+  overflow-x: auto;
+  display: flex;
+  height: 100%;
 }
 
 .page {
@@ -29,8 +56,16 @@ a {
   width: 100%;
 }
 
-.title, .app-title {
+.title, .app-title, .nav-text, .nav-btn-text {
   margin: 0;
+}
+
+.error-container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
 }
 
 /* svg */
@@ -55,8 +90,6 @@ a {
 #arrow.close {
   transform: rotate(0deg);
 }
-
-/* menu */
 
 /* images */
 
@@ -107,6 +140,7 @@ a {
   width: 100%;
   outline: none;
   border: none;
+  background: none;
   border-bottom: solid thin black;
 }
 
