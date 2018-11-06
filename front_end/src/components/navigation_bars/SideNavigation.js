@@ -15,9 +15,13 @@ class SideNavigation extends Component {
   toggle = () => {
     this.setState({ expanded: !this.state.expanded })
   }
+  componentDidMount () {
+    this.props.getBoards()
+  }
+
   render () {
     const { expanded } = this.state
-    const { boards, addBoard } = this.props
+    const { boards, createBoard } = this.props
     return (
       <div id='side-nav-container'>
         <div className='side-navLink' onClick={this.toggle}>
@@ -44,7 +48,7 @@ class SideNavigation extends Component {
           })}
         </div>
 
-        <AddNew title='board' addclick={addBoard} />
+        <AddNew title='board' addclick={createBoard} />
       </div>
     )
   }

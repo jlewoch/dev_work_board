@@ -6,20 +6,24 @@ class TaskManagment extends Component {
   onDrop = (e, newSectionId) => {
     const data = JSON.parse(e.dataTransfer.getData('text'))
     if (data.oldSectionId !== newSectionId) {
+      this.props.updateTask({
+        update: { sectionId: newSectionId },
+        id: data.taskId
+      })
       this.props.addExistingTask({
         taskId: data.taskId,
-        taskItem: data.taskItem,
-        sectionId: newSectionId
-      })
-      this.props.removeTask({
-        taskId: data.taskId,
-        sectionId: data.oldSectionId
+        sectionId: newSectionId,
+        oldSectionId: data.oldSectionId
       })
     }
   }
+  componentDidMount = () => {
+    this.props.getSections()
+    this.props.getTasks()
+  }
 
   render () {
-    const { sections, addSection, boards } = this.props
+    const { sections, createSection, boards } = this.props
     const { boardId } = this.props.match.params
     if (!boards[boardId]) {
       return (
@@ -35,19 +39,21 @@ class TaskManagment extends Component {
     return (
       <div className='task-management'>
         <div className='task-management-top'>
-          <AddNew title='section' addclick={addSection} />
+          <AddNew title='section' addclick={createSection} />
         </div>
         <div className='task-management-bottom'>
 
           {sections[boardId]
-            ? Object.keys(sections[boardId]).map(key => (
-              <TaskSection
-                id={key}
-                key={key}
-                onDrop={this.onDrop}
-                title={sections[boardId][key].title}
-                />
-              ))
+            ? Object.keys(sections[boardId]).map(key => {
+              return (
+                <TaskSection
+                  id={key}
+                  key={key}
+                  onDrop={this.onDrop}
+                  title={sections[boardId][key].title}
+                  />
+              )
+            })
             : ''}
         </div>
 

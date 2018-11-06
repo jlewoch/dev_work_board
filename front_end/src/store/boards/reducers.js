@@ -5,14 +5,15 @@ const initialState = {}
 
 const boards = createReducer(
   {
+    [types.GOT_BOARDS]: (state, payload) => ({ ...state, ...payload }),
     [types.ADD_BOARD]: (state, payload) => ({
       ...state,
 
-      [Date.now().toString()]: { title: payload.title }
+      [payload.id]: { title: payload.title }
     }),
-    [types.EDIT_BOARD_TITLE]: (state, payload) => ({
+    [types.EDIT_BOARD]: (state, payload) => ({
       ...state,
-      [payload.id]: { ...state[payload.id], title: payload.title }
+      [payload.id]: { ...state[payload.id], ...payload.update }
     })
   },
   initialState

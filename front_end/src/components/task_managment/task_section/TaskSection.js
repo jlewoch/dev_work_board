@@ -36,7 +36,6 @@ class TaskSection extends Component {
     e.dataTransfer.setData(
       'text/plain',
       JSON.stringify({
-        taskItem: this.props.tasks[this.props.id][e.target.id],
         taskId: e.target.id,
         oldSectionId: this.props.id
       })
@@ -53,14 +52,14 @@ class TaskSection extends Component {
 
   render () {
     // const { totalItems, pageInfo, offset } = this.state
-    const { tasks, title, addTask, id } = this.props
+    const { tasks, title, createTask, id } = this.props
     return (
       <div className='task-section'>
         <div className='task-section-top'>
           <h5 className='section-title'>{title}</h5>
         </div>
         <div className='task-section-middle'>
-          <AddNew title='Task' addclick={addTask} />
+          <AddNew title='Task' addclick={createTask} />
 
         </div>
 
@@ -72,7 +71,7 @@ class TaskSection extends Component {
           className='task-section-bottom'
         >
           {tasks[id]
-            ? Object.keys(tasks[id]).sort().map(key => {
+            ? Object.keys(tasks[id]).map(key => {
               const card = tasks[id][key]
               return (
                 <TaskCard

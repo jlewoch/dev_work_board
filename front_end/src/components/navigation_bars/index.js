@@ -1,13 +1,14 @@
 import { connect } from 'react-redux'
 import SideNavigationDisplay from './SideNavigation'
-import { editBoardTitle, addBoard } from '../../store/boards/actions'
+import { editBoard, createBoard, getBoards } from '../../store/boards/actions'
 const mapStateToProps = state => ({
   boards: state.boards
 })
 
 const mapDispatchToProps = dispatch => ({
-  addBoard: e => dispatch(addBoard(e)),
-  editTitle: e => dispatch(editBoardTitle())
+  getBoards: () => dispatch(getBoards()),
+  createBoard: e => dispatch(createBoard(e)),
+  editTitle: e => dispatch(editBoard(e))
 })
 
 export const SideNavigation = connect(mapStateToProps, mapDispatchToProps)(

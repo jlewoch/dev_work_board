@@ -1,10 +1,6 @@
 import { createReducer } from 'redux-act'
 import * as types from './actionTypes'
-const initialState = {
-  GET_TASKS: false,
-  UPDATE_TASK: false,
-  CREATE_TASK: false
-}
+const initialState = {}
 
 const tasks = createReducer(
   {

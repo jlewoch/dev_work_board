@@ -5,18 +5,22 @@ const initialState = {}
 
 const sections = createReducer(
   {
+    [types.GOT_SECTIONS]: (state, payload) => ({ ...state, ...payload }),
     [types.ADD_SECTION]: (state, payload) => ({
       ...state,
 
       [payload.boardId]: {
         ...state[payload.boardId],
-        [Date.now().toString()]: { title: payload.title }
+        [payload.sectionId]: { id: payload.sectionId, title: payload.title }
       }
     }),
-    [types.EDIT_SECTION_TITLE]: (state, payload) => ({
+    [types.EDIT_SECTION]: (state, payload) => ({
       [payload.boardId]: {
         ...state[payload.boardId],
-        [payload.sectionId]: { title: payload.title }
+        [payload.sectionId]: {
+          ...state[payload.boardId][payload.sectionId],
+          ...payload.update
+        }
       }
     })
   },

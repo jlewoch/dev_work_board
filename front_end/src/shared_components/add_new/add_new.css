@@ -1,6 +1,6 @@
 .adding-container {
     display: flex;
-    width: 100%;
+    max-width: 350px;
 }
 
 .adding-btn {
