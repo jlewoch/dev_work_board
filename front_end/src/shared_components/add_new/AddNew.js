@@ -6,7 +6,11 @@ export default class AddNew extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      input: '',
+      titleinp: '',
+      priority: '',
+      due: '',
+      category: '',
+      assigned: '',
       enabled: false
     }
   }
@@ -15,34 +19,107 @@ export default class AddNew extends Component {
     this.setState({ enabled: !this.state.enabled })
   }
   onChange = e => {
-    this.setState({ input: e.target.value })
+    this.setState({ [e.target.id]: e.target.value })
+  }
+  timeChange = e => {
+    this.setState({ due: new Date(e.target.value).toLocaleString('en-us') })
   }
   add = () => {
-    this.props.addclick({ title: this.state.input })
-    this.setState({ enabled: !this.state.enabled, input: '' })
+    const { titleinp, priority, due, category, assigned } = this.state
+
+    if (this.props.title === 'Task') {
+      this.props.addclick({
+        title: titleinp,
+        priority,
+        due,
+        category,
+        assigned
+      })
+    } else {
+      this.props.addclick({ title: titleinp })
+    }
+    this.setState({
+      enabled: !this.state.enabled,
+      titleinp: '',
+      priority: '',
+      due: '',
+      category: '',
+      assigned: ''
+    })
   }
 
   render () {
-    const { enabled, input } = this.state
+    const { enabled, priority, due, titleinp, category, assigned } = this.state
     const { title } = this.props
-    return (
-      <div className='adding-container'>
-        {!enabled
-          ? <div className='adding' onClick={this.toggle}>
-            <h4 className='title'>Add a new {title}</h4><PlusBtn />
-          </div>
-          : <div className='adding'>
-            <FormInput
-              value={input}
-              onChange={this.onChange}
-              type='text'
-              title={`Enter ${title} Title`}
-              />
-            <button className='adding-btn' onClick={this.add}>
-                ADD
-              </button>
-          </div>}
-      </div>
-    )
+
+    if (title === 'Task') {
+      return (
+        <div className='adding-container'>
+          {!enabled
+            ? <div className='adding' onClick={this.toggle}>
+              <h4 className='title'>Add a new {title}</h4><PlusBtn />
+            </div>
+            : <div className='adding adding-task-container'>
+              <FormInput
+                id='titleinp'
+                value={titleinp}
+                onChange={this.onChange}
+                type='text'
+                label={`Enter ${title} Title`}
+                />
+              <FormInput
+                id='priority'
+                value={priority}
+                onChange={this.onChange}
+                type='text'
+                label={`Enter Priority`}
+                />
+              <FormInput
+                id='assigned'
+                value={assigned}
+                onChange={this.onChange}
+                type='text'
+                label={`Assign To`}
+                />
+              <FormInput
+                id='category'
+                value={category}
+                onChange={this.onChange}
+                type='text'
+                label={`Enter ${title} Category`}
+                />
+              <FormInput
+                id='due'
+                onChange={this.onChange}
+                type='datetime-local'
+                />
+              <button className='adding-btn' onClick={this.add}>
+                  ADD
+                </button>
+            </div>}
+        </div>
+      )
+    } else {
+      return (
+        <div className='adding-container'>
+          {!enabled
+            ? <div className='adding' onClick={this.toggle}>
+              <h4 className='title'>Add a new {title}</h4><PlusBtn />
+            </div>
+            : <div className='adding'>
+              <FormInput
+                id='titleinp'
+                value={titleinp}
+                onChange={this.onChange}
+                type='text'
+                label={`Enter ${title} Title`}
+                />
+              <button className='adding-btn' onClick={this.add}>
+                  ADD
+                </button>
+            </div>}
+        </div>
+      )
+    }
   }
 }

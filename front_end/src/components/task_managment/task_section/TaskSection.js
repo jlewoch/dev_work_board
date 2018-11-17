@@ -59,7 +59,7 @@ class TaskSection extends Component {
           <h5 className='section-title'>{title}</h5>
         </div>
         <div className='task-section-middle'>
-          <AddNew title='Task' addclick={createTask} />
+          <AddNew title='Task' addclick={createTask}/>
 
         </div>
 

@@ -18,7 +18,11 @@
     padding: 10px;
 }
 
-.adding-container:hover, .adding-btn:hover {
+.adding-container:hover, .adding-btn:hover, {
     cursor: pointer;
     background: gray;
+}
+
+.adding-task-container {
+    flex-direction: column
 }

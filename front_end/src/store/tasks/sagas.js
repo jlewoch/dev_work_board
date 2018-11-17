@@ -28,8 +28,7 @@ function * addTask (e) {
     yield put(
       actions.addTask({
         taskId: tasks.data[0],
-        title: e.title,
-        sectionId: e.sectionId
+        ...e
       })
     )
   } catch (error) {

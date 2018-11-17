@@ -10,7 +10,7 @@ module.exports = {
       .catch(err => res.status(400).json(err))
   },
 
-  create: function (req, res, next) {
+  create: function (req, res) {
     const title = req.body
     if (typeof title !== 'undefined') {
       console.log('good')

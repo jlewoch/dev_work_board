@@ -6,8 +6,8 @@ module.exports = {
     connection: {
       host: 'localhost',
       port: '3306',
-      user: 'jlewoch',
-      password: 'Dragons21',
+      user: '',
+      password: '',
       database: 'workboard'
     }
   },

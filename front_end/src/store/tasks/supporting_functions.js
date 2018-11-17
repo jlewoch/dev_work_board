@@ -1,7 +1,7 @@
 export const taskObject = e => ({
   taskNum: e.taskNum || 0,
   priority: e.priority || 'Normal',
-  dueDate: e.dueDate || '',
+  dueDate: e.due ? new Date(e.due).toLocaleString() : '',
   title: e.title,
   assignedImg: e.assigned || '',
   category: e.category || 'N/A'

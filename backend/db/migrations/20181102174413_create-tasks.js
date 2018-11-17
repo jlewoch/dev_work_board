@@ -4,6 +4,9 @@ exports.up = async () => {
     table.increments('id').unsigned().primary()
     table.string('title').notNull()
     table.string('priority')
+    table.string('category')
+    table.string('assigned')
+
     table.integer('sectionId').notNull()
     table.datetime('due')
     table.timestamp('created_at').notNull()
