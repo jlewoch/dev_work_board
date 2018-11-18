@@ -5,7 +5,7 @@ exports.up = async () => {
     table.string('title').notNull()
     table.string('priority')
     table.string('category')
-    table.string('assigned')
+    table.string('assigned').defaultTo('')
 
     table.integer('sectionId').notNull()
     table.datetime('due')

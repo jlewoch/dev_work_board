@@ -18,9 +18,14 @@
     padding: 10px;
 }
 
-.adding-container:hover, .adding-btn:hover, {
+.adding-btn:hover {
     cursor: pointer;
-    background: gray;
+    background: white;
+}
+
+.adding-container:hover {
+    cursor: pointer;
+    background: lightgrey;
 }
 
 .adding-task-container {

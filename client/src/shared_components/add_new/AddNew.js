@@ -10,6 +10,7 @@ export default class AddNew extends Component {
       priority: '',
       due: '',
       category: '',
+      assigned: '',
       enabled: false
     }
   }
