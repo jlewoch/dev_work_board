@@ -20,7 +20,7 @@ function * addBoard (e) {
   setLoading(types.CREATE_BOARD, true)
   try {
     let boards = yield call(api.create, 'boards', e)
-    yield put(actions.addBoard({ id: boards.data.oid, title: e.title }))
+    yield put(actions.addBoard({ id: boards.data[0], title: e.title }))
   } catch (error) {
     console.log(error)
   }

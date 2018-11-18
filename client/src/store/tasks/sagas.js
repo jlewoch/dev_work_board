@@ -27,7 +27,7 @@ function * addTask (e) {
 
     yield put(
       actions.addTask({
-        taskId: tasks.data.oid,
+        taskId: tasks.data[0],
         ...e
       })
     )
