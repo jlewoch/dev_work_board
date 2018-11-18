@@ -9,7 +9,7 @@ exports.up = async () => {
 
     table.integer('sectionId').notNull()
     table.datetime('due')
-    table.timestamp('created_at').notNull()
+    table.timestamp('created_at').notNull().defaultTo(new Date().toUTCString())
   })
 }
 
