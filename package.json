@@ -1,19 +1,25 @@
 {
-  "name": "task-board",
+  "name": "work_board",
   "version": "1.0.0",
-  "engines": {
-    "node": "8.11.1",
-    "npm": "6.4.1"
-  },
+  "description": "task board",
   "main": "app.js",
-  "private": true,
   "scripts": {
     "start": "node app.js",
-    "heroku-prebuild": "cd client && npm install && npm run build"
+    "postinstall": "cd client & npm install & npm run build"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jlewoch/dev_work_board.git"
+  },
+  "author": "Jake Lewochko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jlewoch/dev_work_board/issues"
+  },
+  "homepage": "https://github.com/jlewoch/dev_work_board#readme",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.4",
-    "knex": "^0.15.2",
-    "pg": "^7.6.1"
+    "knex": "^0.15.2"
   }
 }
