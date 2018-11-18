@@ -21,6 +21,7 @@ module.exports = {
       database: 'd312agjdj2q57l'
     }
   },
+
   ssl: true,
   pool: { min: 0, max: 7 }
 }
