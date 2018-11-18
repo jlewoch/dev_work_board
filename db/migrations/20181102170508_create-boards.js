@@ -3,7 +3,7 @@ exports.up = async () => {
   await knex.schema.createTable('boards', table => {
     table.increments('id').unsigned().primary()
     table.string('title').notNull()
-    table.timestamp('created_at').notNull()
+    table.timestamp('created_at').notNull().defaultTo(new Date().toUTCString())
   })
 }
 

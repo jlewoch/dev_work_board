@@ -23,7 +23,7 @@ function * addSection (e) {
 
     yield put(
       actions.addSection({
-        sectionId: sections.data[0],
+        sectionId: sections.data.oid,
         title: e.title,
         boardId: e.boardId
       })

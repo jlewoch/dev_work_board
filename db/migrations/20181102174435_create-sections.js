@@ -4,7 +4,7 @@ exports.up = async () => {
     table.increments('id').unsigned().primary()
     table.string('title').notNull()
     table.integer('boardId').notNull()
-    table.timestamp('created_at').notNull()
+    table.timestamp('created_at').notNull().defaultTo(new Date().toUTCString())
   })
 }
 
