@@ -4,7 +4,7 @@ Task Board
 This app  allows users to add new boards, sections and tasks with the ability to drag and drop from each section. and updates connected db with each action
 
 Getting Started
-you will have to have mysql configured and installed
+you will have to have postgre configured and installed
 you will need to install nodemon and knex using npm install -g nodemon knex
 go into the db folder and provided the credentials to you mysql db in the knexfile.js
 run npm install and then npm install in the root folder.  
@@ -15,7 +15,7 @@ Prerequisites
 nodejs, mysql
 
 Built With
-HTML5, nodejs, express, redux, mysql, knex and React
+HTML5, nodejs, express, redux, postgre, knex and React
 
 Versioning
 1.0.0
