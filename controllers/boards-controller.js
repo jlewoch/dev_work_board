@@ -13,8 +13,6 @@ module.exports = {
   create: function (req, res) {
     const title = req.body
     if (typeof title !== 'undefined') {
-      console.log('good')
-
       knex('boards')
         .insert(req.body)
         .returning('id')

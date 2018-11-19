@@ -35,7 +35,6 @@ export const changeStatus = (state, payload) => {
     return { ...state }
   }
   let old = state[payload.oldStatus]
-  console.log(old[payload.id])
 
   let update = state[payload.newStatus]
   update[payload.id] = old[payload.id]

@@ -10,7 +10,6 @@ function * getTasks () {
   setLoading(types.GET_TASKS, true)
   try {
     let tasks = yield call(api.get, 'tasks')
-    console.log(tasks)
 
     yield put(actions.gotTasks(normalizeTasks(tasks.data)))
   } catch (error) {
@@ -20,10 +19,7 @@ function * getTasks () {
 function * addTask (e) {
   setLoading(types.CREATE_TASK, true)
   try {
-    console.log(e)
-
     let tasks = yield call(api.create, 'tasks', e)
-    console.log(tasks)
 
     yield put(
       actions.addTask({
@@ -36,8 +32,6 @@ function * addTask (e) {
   }
 }
 function * updateTask (e) {
-  console.log(e)
-
   setLoading(types.UPDATE_TASK, true)
   try {
     yield call(api.update, `task/${e.id}`, e.update)

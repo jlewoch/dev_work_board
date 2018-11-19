@@ -39,8 +39,6 @@ function * updateBoard (e) {
   setLoading(types.UPDATE_BOARD, false)
 }
 function * removeBoard (e) {
-  console.log(e)
-
   setLoading(types.REMOVE_BOARD, true)
   try {
     yield call(api.destroy, `board/${e.id}`)

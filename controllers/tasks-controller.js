@@ -35,8 +35,6 @@ module.exports = {
   },
 
   update: function (req, res) {
-    console.log(req.params)
-
     knex('tasks')
       .update(req.body)
       .where({ id: req.params.id })
