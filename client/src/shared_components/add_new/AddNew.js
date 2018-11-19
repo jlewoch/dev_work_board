@@ -48,7 +48,7 @@ export default class AddNew extends Component {
   }
 
   render () {
-    const { enabled, priority, due, titleinp, category, assigned } = this.state
+    const { enabled, priority, due, titleinp, category } = this.state
     const { title } = this.props
 
     if (title === 'Task') {
@@ -86,7 +86,16 @@ export default class AddNew extends Component {
                 onChange={this.onChange}
                 type='datetime-local'
                 />
-              <button className='adding-btn' onClick={this.add}>
+              <button
+                disabled={
+                    due.length === 0 ||
+                      category.length === 0 ||
+                      priority.length === 0 ||
+                      titleinp.length === 0
+                  }
+                className='adding-btn'
+                onClick={this.add}
+                >
                   ADD
                 </button>
             </div>}
@@ -107,7 +116,11 @@ export default class AddNew extends Component {
                 type='text'
                 label={`Enter ${title} Title`}
                 />
-              <button className='adding-btn' onClick={this.add}>
+              <button
+                disabled={titleinp.length === 0}
+                className='adding-btn'
+                onClick={this.add}
+                >
                   ADD
                 </button>
             </div>}
