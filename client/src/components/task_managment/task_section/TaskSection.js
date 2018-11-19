@@ -3,6 +3,7 @@ import TaskCard from './task_card/TaskCard'
 import './task_section.css'
 import PlusBtn from '../../../shared_components/icons/plus_btn/PlusBtn'
 import AddNew from '../../../shared_components/add_new/AddNew'
+import DeleteX from '../../../shared_components/icons/delete/DeleteX'
 class TaskSection extends Component {
   constructor (props) {
     super(props)
@@ -52,14 +53,23 @@ class TaskSection extends Component {
 
   render () {
     // const { totalItems, pageInfo, offset } = this.state
-    const { tasks, title, createTask, id } = this.props
+    const {
+      tasks,
+      title,
+      createTask,
+      id,
+      removeSection,
+      boardId,
+      removeTask
+    } = this.props
     return (
       <div className='task-section'>
         <div className='task-section-top'>
           <h5 className='section-title'>{title}</h5>
+          <DeleteX onClick={() => removeSection({ id, boardId })} />
         </div>
         <div className='task-section-middle'>
-          <AddNew title='Task' addclick={createTask}/>
+          <AddNew title='Task' addclick={createTask} />
 
         </div>
 
@@ -75,6 +85,7 @@ class TaskSection extends Component {
               const card = tasks[id][key]
               return (
                 <TaskCard
+                  delClick={() => removeTask({ id: key, sectionId: id })}
                   key={key}
                   id={key}
                   taskNum={key}

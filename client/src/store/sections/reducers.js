@@ -22,7 +22,15 @@ const sections = createReducer(
           ...payload.update
         }
       }
-    })
+    }),
+    [types.REMOVE_SECTION]: (state, payload) => {
+      let temp = state[payload.boardId]
+      delete temp[payload.id]
+      return {
+        ...state,
+        [payload.boardId]: temp
+      }
+    }
   },
   initialState
 )

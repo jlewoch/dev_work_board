@@ -15,6 +15,7 @@ function * getBoards () {
   } catch (error) {
     console.log(error)
   }
+  setLoading(types.GET_BOARDS, false)
 }
 function * addBoard (e) {
   setLoading(types.CREATE_BOARD, true)
@@ -24,6 +25,7 @@ function * addBoard (e) {
   } catch (error) {
     console.log(error)
   }
+  setLoading(types.CREATE_BOARD, false)
 }
 function * updateBoard (e) {
   setLoading(types.UPDATE_BOARD, true)
@@ -32,11 +34,26 @@ function * updateBoard (e) {
     yield put(actions.editBoard(e))
   } catch (error) {
     console.log(error)
+    setError(types.UPDATE_BOARD)
   }
+  setLoading(types.UPDATE_BOARD, false)
+}
+function * removeBoard (e) {
+  console.log(e)
+
+  setLoading(types.REMOVE_BOARD, true)
+  try {
+    yield call(api.destroy, `board/${e.id}`)
+    yield put(actions.removedBoard(e))
+  } catch (error) {
+    console.log(error)
+  }
+  setLoading(types.REMOVE_BOARD, false)
 }
 
 export const boardsSagas = function * () {
   yield takeEvery(types.CREATE_BOARD, e => addBoard(e.payload))
   yield takeEvery(types.GET_BOARDS, () => getBoards())
   yield takeEvery(types.UPDATE_BOARD, e => updateBoard(e.payload))
+  yield takeEvery(types.REMOVE_BOARD, e => removeBoard(e.payload))
 }

@@ -45,8 +45,8 @@ module.exports = {
 
   destroy: function (req, res) {
     knex('sections')
-      .delete()
       .where({ id: req.params.id })
+      .del()
       .then(res.status(200).json({ result: 'success' }))
       .catch(res.status(400).json)
   }

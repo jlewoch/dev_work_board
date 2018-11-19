@@ -47,6 +47,7 @@ class TaskManagment extends Component {
             ? Object.keys(sections[boardId]).map(key => {
               return (
                 <TaskSection
+                  boardId={boardId}
                   id={key}
                   key={key}
                   onDrop={this.onDrop}

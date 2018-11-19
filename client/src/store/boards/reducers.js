@@ -14,7 +14,14 @@ const boards = createReducer(
     [types.EDIT_BOARD]: (state, payload) => ({
       ...state,
       [payload.id]: { ...state[payload.id], ...payload.update }
-    })
+    }),
+    [types.REMOVED_BOARD]: (state, payload) => {
+      let temp = state
+      delete temp[payload.id]
+      return {
+        ...temp
+      }
+    }
   },
   initialState
 )

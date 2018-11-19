@@ -46,9 +46,19 @@ function * updateTask (e) {
     console.log(error)
   }
 }
-
+function * removeTask (e) {
+  setLoading(types.REMOVE_TASK, true)
+  try {
+    yield call(api.destroy, `task/${e.id}`)
+    yield put(actions.removedTask(e))
+  } catch (error) {
+    console.log(error)
+  }
+  setLoading(types.REMOVE_TASK, false)
+}
 export const tasksSagas = function * () {
   yield takeEvery(types.CREATE_TASK, e => addTask(e.payload))
   yield takeEvery(types.GET_TASKS, () => getTasks())
   yield takeEvery(types.UPDATE_TASK, e => updateTask(e.payload))
+  yield takeEvery(types.REMOVE_TASK, e => removeTask(e.payload))
 }

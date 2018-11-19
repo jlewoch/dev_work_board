@@ -7,6 +7,12 @@
     background: darkgrey;
 }
 
+.side-navLink-container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
 .side-navLink {
     display: flex;
     justify-content: space-between;
@@ -48,7 +54,6 @@
 
 .expandable-list {
     overflow-y: auto;
-    padding-left: 20px;
+    padding: 0 20px 0 10px;
     width: 100%;
-    
 }

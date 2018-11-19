@@ -4,6 +4,7 @@ import DefaultImage
 import CommentsIcon
   from '../../../../shared_components/icons/comments_icon/CommentsIcon'
 import './task_card.css'
+import DeleteX from '../../../../shared_components/icons/delete/DeleteX'
 
 const TaskCard = ({
   taskNum,
@@ -13,14 +14,15 @@ const TaskCard = ({
   id,
   onDrag,
   assignedImg,
-  category
+  category,
+  delClick
 }) => {
   return (
     <div draggable className='card' id={id} onDragStart={onDrag}>
       <div className='card-top'>
         <p className='identity'>{'#' + taskNum}</p>
         <p className={`priority ${priority}`}>{priority}</p>
-
+        <DeleteX onClick={delClick} />
       </div>
       <div className='card-middle'>
         <h4 className='title'>{title}</h4>

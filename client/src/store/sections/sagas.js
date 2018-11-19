@@ -41,9 +41,19 @@ function * updateSection (e) {
     console.log(error)
   }
 }
-
+function * removeSection (e) {
+  setLoading(types.REMOVE_SECTION, true)
+  try {
+    yield call(api.destroy, `section/${e.id}`)
+    yield put(actions.removedSection(e))
+  } catch (error) {
+    console.log(error)
+  }
+  setLoading(types.REMOVE_SECTION, false)
+}
 export const sectionsSagas = function * () {
   yield takeEvery(types.CREATE_SECTION, e => addSection(e.payload))
   yield takeEvery(types.GET_SECTIONS, () => getSections())
   yield takeEvery(types.UPDATE_SECTION, e => updateSection(e.payload))
+  yield takeEvery(types.REMOVE_SECTION, e => removeSection(e.payload))
 }

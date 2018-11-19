@@ -35,6 +35,14 @@ const tasks = createReducer(
         ...state,
         [payload.sectionId]: temp
       }
+    },
+    [types.REMOVED_TASK]: (state, payload) => {
+      let temp = state[payload.sectionId]
+      delete temp[payload.id]
+      return {
+        ...state,
+        [payload.sectionId]: temp
+      }
     }
   },
   initialState

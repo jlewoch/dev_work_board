@@ -7,7 +7,11 @@ import {
   getTasks,
   updateTask
 } from '../../store/tasks/actions'
-import { createSection, getSections } from '../../store/sections/actions'
+import {
+  createSection,
+  getSections,
+  removeSection
+} from '../../store/sections/actions'
 const mapStateToProps = state => ({
   boards: state.boards,
   sections: state.sections
