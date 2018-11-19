@@ -9,7 +9,7 @@ you will need to install nodemon and knex using npm install -g nodemon knex
 go into the db folder and provided the credentials to you mysql db in the knexfile.js
 run npm install and then npm install in the root folder.  
 in the cli navigate to the db file and type knex migrate:latest
-then use npm start and you will then be able to view the page on http://localhost:3000
+then use npm start and you will then be able to view the page on http://localhost:9000
 
 Prerequisites
 nodejs, mysql
