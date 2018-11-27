@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Select from 'react-select'
 import FormInput from '../../form_input/FormInput'
 import ConfirmBtn from '../../icons/confirm_btn/ConfirmBtn'
+import DeleteX from '../../icons/delete/DeleteX'
 const priorities = [
   { value: 'High', label: 'High' },
   { value: 'Medium', label: 'Medium' },
@@ -62,7 +63,11 @@ export default class NewTask extends Component {
           onChange={e => this.handleChange({ id: 'category', value: e.value })}
           options={categories}
         />
-        <ConfirmBtn onClick={this.submit} />
+        <div className='form-controls'>
+          <DeleteX onClick={this.props.cancel} />
+
+          <ConfirmBtn onClick={this.submit} />
+        </div>
 
       </div>
     )
