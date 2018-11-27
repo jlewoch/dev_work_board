@@ -3,6 +3,7 @@ import PlusBtn from '../icons/plus_btn/PlusBtn'
 import './add_new.css'
 import NewTask from './new_task/NewTask'
 import FormInput from '../form_input/FormInput'
+import ConfirmBtn from '../icons/confirm_btn/ConfirmBtn'
 export default class AddNew extends Component {
   constructor (props) {
     super(props)
@@ -36,10 +37,26 @@ export default class AddNew extends Component {
     const submitForm = () => {
       switch (title) {
         case 'Task':
-          return <NewTask />
+          return <NewTask addclick={this.props.addclick} />
 
         default:
-          return <div className='flex-even'> <FormInput title={title} /></div>
+          return (
+            <div className='adding'>
+              <div className='seperator'>
+                <FormInput
+                  id='title'
+                  label={title}
+                  value={this.state.title}
+                  onChange={this.onChange}
+                />
+              </div>
+
+              <div className='seperator'>
+                <ConfirmBtn onClick={this.add} />
+
+              </div>
+            </div>
+          )
       }
     }
 

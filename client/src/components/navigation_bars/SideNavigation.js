@@ -47,7 +47,7 @@ class SideNavigation extends Component {
           })}
         </div>
 
-        <AddNew title='board' addclick={createBoard} />
+        <AddNew title='Board' addclick={createBoard} />
       </div>
     )
   }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Select from 'react-select'
 import FormInput from '../../form_input/FormInput'
+import ConfirmBtn from '../../icons/confirm_btn/ConfirmBtn'
 const priorities = [
   { value: 'High', label: 'High' },
   { value: 'Medium', label: 'Medium' },
@@ -27,14 +28,19 @@ export default class NewTask extends Component {
   handleChange = e => {
     this.setState({ [e.id]: e.value })
   }
-  onSubmit = e => {
+  submit = e => {
     e.preventDefault()
+    this.props.addClick({
+      title: this.state.title,
+      category: this.state.category,
+      priority: this.state.priority
+    })
   }
   render () {
     console.log(this.state)
 
     return (
-      <form onSubmit={this.onSubmit}>
+      <div className='form'>
         <FormInput
           id='title'
           value={this.state.title}
@@ -56,8 +62,9 @@ export default class NewTask extends Component {
           onChange={e => this.handleChange({ id: 'category', value: e.value })}
           options={categories}
         />
-        <input type='submit' value='Submit' />
-      </form>
+        <ConfirmBtn onClick={this.submit} />
+
+      </div>
     )
   }
 }

@@ -25,12 +25,12 @@
     margin: 0;
 }
 
-.task-section-button {}
 
 .task-section-top {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     background: #d4d0c0;
     border-radius: 6px;
-    padding: 10px;
+    padding: 10px 0 10px 10px;
 }

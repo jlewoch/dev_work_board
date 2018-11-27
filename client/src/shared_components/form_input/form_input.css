@@ -1,0 +1,36 @@
+.form-input:focus~.form-input-label {
+    color: blue;
+    transform: translateY(-10px);
+    font-size: .75rem;
+}
+
+.form-input-label.valid {
+    color: blue;
+    transform: translateY(-10px);
+    font-size: .75rem;
+}
+
+.form-input-container {
+    width: fill;
+    padding: 12px 0;
+    position: relative;
+}
+
+.form-input {
+    font-size: .9rem;
+    width: 100%;
+    outline: none;
+    border: none;
+    background: none;
+    border-bottom: solid thin black;
+}
+
+.form-input-label {
+    color: gray;
+    font-size: .9rem;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    pointer-events: none;
+    transition: .2s ease;
+}

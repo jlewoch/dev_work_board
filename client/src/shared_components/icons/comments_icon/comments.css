@@ -1,0 +1,8 @@
+.comments {
+    transition: .2s all ease-in-out;
+}
+
+.comments:hover {
+    cursor: pointer;
+    stroke: #5896ce;
+}

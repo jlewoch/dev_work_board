@@ -1,4 +1,5 @@
 import React from 'react'
+import './form_input.css'
 const FormInput = ({ id, onChange, value, required, label, type }) => {
   return (
     <div className={`form-input-container`}>

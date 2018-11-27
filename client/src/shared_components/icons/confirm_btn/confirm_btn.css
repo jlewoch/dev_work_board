@@ -1,5 +1,5 @@
-.delete-container {
-    background: #971209;
+.confirm-container {
+    background: #3fa246;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -8,10 +8,9 @@
     width: 25px;
     transition-duration: .5s;
     margin: 0 10px;
-
 }
 
-.delete-container:hover {
-    background: #bf392b;
+.confirm-container:hover {
+    background: #007c00;
     cursor: pointer;
 }

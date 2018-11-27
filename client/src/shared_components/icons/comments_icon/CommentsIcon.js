@@ -1,8 +1,8 @@
 import React from 'react'
-
+import './comments.css'
 const CommentsIcon = ({ width = 30 }) => {
   return (
-    <svg className='svg' stroke='black' viewBox='0 0 30 30' width={width}>
+    <svg className='comments' stroke='black' viewBox='0 0 30 30' width={width}>
       <path
         fill='white'
         strokeLinecap='round'
