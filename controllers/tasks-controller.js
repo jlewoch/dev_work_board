@@ -12,17 +12,17 @@ module.exports = {
 
   create: function (req, res) {
     const { title, sectionId } = req.body
-    if ((typeof title !== 'undefined', typeof sectionId !== 'undefined')) {
+    if (title === undefined || sectionId === undefined) {
+      res.status(400).json({
+        result: 'error',
+        msg: 'Please fill required details'
+      })
+    } else {
       knex('tasks')
         .insert(req.body)
         .returning('id')
         .then(data => res.status(201).json({ data, result: 'success' }))
         .catch(err => res.status(400).json(err))
-    } else {
-      res.status(400).json({
-        result: 'error',
-        msg: 'Please fill required details'
-      })
     }
   },
 

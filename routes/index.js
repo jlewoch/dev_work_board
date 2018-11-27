@@ -5,6 +5,7 @@ const sectionsController = require('../controllers/sections-controller')
 const tasksController = require('../controllers/tasks-controller')
 const notFoundController = require('../controllers/not-found-controller')
 
+// boards
 router
   .route('/boards')
   .get((req, res) => boardsController.all(req, res))
@@ -15,6 +16,7 @@ router
   .put((req, res) => boardsController.update(req, res))
   .delete((req, res) => boardsController.destroy(req, res))
 
+// sections
 router
   .route('/sections')
   .get((req, res) => sectionsController.all(req, res))
@@ -24,6 +26,8 @@ router
   .get((req, res) => sectionsController.get(req, res))
   .put((req, res) => sectionsController.update(req, res))
   .delete((req, res) => sectionsController.destroy(req, res))
+
+// tasks
 router
   .route('/tasks')
   .get((req, res) => tasksController.all(req, res))
