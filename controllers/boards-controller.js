@@ -16,7 +16,7 @@ module.exports = {
       knex('boards')
         .insert(req.body)
         .returning('id')
-        .then(data => res.status(200).json({ data, result: 'success' }))
+        .then(data => res.status(201).json({ data, result: 'success' }))
         .catch(err => res.status(400).json(err))
     } else {
       res.status(400).json({

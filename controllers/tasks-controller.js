@@ -10,13 +10,13 @@ module.exports = {
       .catch(err => res.status(400).json(err))
   },
 
-  create: function (req, res, next) {
+  create: function (req, res) {
     const { title, sectionId } = req.body
     if ((typeof title !== 'undefined', typeof sectionId !== 'undefined')) {
       knex('tasks')
         .insert(req.body)
         .returning('id')
-        .then(data => res.status(200).json({ data, result: 'success' }))
+        .then(data => res.status(201).json({ data, result: 'success' }))
         .catch(err => res.status(400).json(err))
     } else {
       res.status(400).json({

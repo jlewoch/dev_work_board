@@ -15,10 +15,17 @@ const TaskCard = ({
   onDrag,
   assignedImg,
   category,
-  delClick
+  delClick,
+  onDragEnter
 }) => {
   return (
-    <div draggable className='card' id={id} onDragStart={onDrag}>
+    <div
+      onDragEnter={onDragEnter}
+      draggable
+      className='card'
+      id={id}
+      onDragStart={onDrag}
+    >
       <div className='card-top'>
         <p className='identity'>{'#' + taskNum}</p>
         <p className={`priority ${priority}`}>{priority}</p>

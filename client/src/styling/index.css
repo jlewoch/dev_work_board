@@ -18,6 +18,11 @@ a {
   color: black;
 }
 
+.flex-even {
+  display: flex;
+  justify-content: space-evenly
+}
+
 #main {
   display: flex;
   flex-direction: column;
@@ -56,7 +61,10 @@ a {
   width: 100%;
 }
 
-.title, .app-title, .nav-text, .nav-btn-text {
+.title,
+.app-title,
+.nav-text,
+.nav-btn-text {
   margin: 0;
 }
 
